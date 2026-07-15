@@ -1,0 +1,7 @@
+KING JAMES VERSION TEXT
+
+The King James Version text included in this app is public domain.
+Structured using the pythonbible KJV data package.
+Cross-checked against public-domain KJV sources including Project Gutenberg eBook #10.
+
+Application code in this package was created for Clayton D'Souza.

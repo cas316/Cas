@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="KJV Bible">
+  <meta name="theme-color" content="#15233a">
+  <meta name="format-detection" content="telephone=no">
+  <title>Holy Bible — KJV</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="boot" class="boot" aria-live="polite">
+    <div class="boot-book"><span></span></div>
+    <div class="boot-title">HOLY BIBLE</div>
+    <div class="boot-sub">KING JAMES VERSION</div>
+  </div>
+
+  <div id="app" class="app hidden">
+    <header id="topbar" class="topbar">
+      <button id="menuBtn" class="icon-btn" aria-label="Choose book and chapter">☰</button>
+      <button id="referenceBtn" class="reference-btn" aria-label="Choose book and chapter">
+        <span id="referenceTitle">John 1</span>
+        <small>KING JAMES VERSION</small>
+      </button>
+      <button id="displayBtn" class="icon-btn type-btn" aria-label="Reading appearance">Aa</button>
+    </header>
+
+    <main id="main" class="main">
+      <section id="readerView" class="view active-view">
+        <div class="chapter-heading">
+          <div id="bookHeading" class="book-heading">John</div>
+          <div id="chapterHeading" class="chapter-number">1</div>
+        </div>
+        <article id="verses" class="verses" aria-live="polite"></article>
+        <div class="chapter-nav">
+          <button id="prevChapter" class="chapter-nav-btn">‹ Previous</button>
+          <button id="nextChapter" class="chapter-nav-btn">Next ›</button>
+        </div>
+      </section>
+
+      <section id="searchView" class="view">
+        <div class="page-pad">
+          <h1>Search</h1>
+          <form id="searchForm" class="search-form">
+            <input id="searchInput" type="search" autocomplete="off" autocapitalize="none" placeholder="Words or John 3:16" aria-label="Search the Bible">
+            <button type="submit">Search</button>
+          </form>
+          <p id="searchHint" class="muted">Search all 31,102 verses, or type a reference.</p>
+          <div id="searchResults" class="result-list"></div>
+        </div>
+      </section>
+
+      <section id="savedView" class="view">
+        <div class="page-pad">
+          <h1>Saved</h1>
+          <div class="segmented" role="tablist">
+            <button id="bookmarksTab" class="selected" type="button">Bookmarks</button>
+            <button id="notesTab" type="button">Notes</button>
+          </div>
+          <div id="savedResults" class="result-list"></div>
+        </div>
+      </section>
+
+      <section id="settingsView" class="view">
+        <div class="page-pad settings-page">
+          <h1>Settings</h1>
+          <div class="settings-card">
+            <div class="setting-row">
+              <div><strong>Text size</strong><small>Adjust the reading type</small></div>
+              <div class="stepper"><button id="fontMinus">−</button><span id="fontLabel">18</span><button id="fontPlus">+</button></div>
+            </div>
+            <div class="setting-row stacked">
+              <div><strong>Theme</strong><small>Choose a comfortable page</small></div>
+              <div id="themeChoices" class="theme-choices">
+                <button data-theme="light" class="theme-choice light selected" aria-label="Light theme"></button>
+                <button data-theme="sepia" class="theme-choice sepia" aria-label="Sepia theme"></button>
+                <button data-theme="dark" class="theme-choice dark" aria-label="Dark theme"></button>
+              </div>
+            </div>
+            <label class="setting-row switch-row">
+              <div><strong>Verse numbers</strong><small>Show verse numbers in the text</small></div>
+              <input id="verseNumberToggle" type="checkbox" checked><span class="switch"></span>
+            </label>
+          </div>
+
+          <div class="settings-card install-card">
+            <strong>Add to your iPhone</strong>
+            <p>In Safari, tap <b>Share</b>, then <b>Add to Home Screen</b>. Open it once while online so the complete Bible is saved for offline reading.</p>
+          </div>
+
+          <div class="settings-card about-card">
+            <div class="mini-icon">✝</div>
+            <strong>Holy Bible — KJV</strong>
+            <p>Complete 66-book King James Version. Bookmarks, notes, highlights and reading position remain only on this device.</p>
+            <small>KJV text: public domain.</small>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="tabbar" aria-label="Primary navigation">
+      <button data-view="reader" class="tab active-tab"><span>▤</span><small>Read</small></button>
+      <button data-view="search" class="tab"><span>⌕</span><small>Search</small></button>
+      <button data-view="saved" class="tab"><span>♡</span><small>Saved</small></button>
+      <button data-view="settings" class="tab"><span>⚙</span><small>Settings</small></button>
+    </nav>
+  </div>
+
+  <div id="picker" class="modal hidden" role="dialog" aria-modal="true" aria-label="Choose passage">
+    <div class="scrim" data-close="picker"></div>
+    <div class="sheet picker-sheet">
+      <div class="sheet-handle"></div>
+      <div class="sheet-title-row"><h2>Choose Passage</h2><button data-close="picker">Done</button></div>
+      <div class="picker-tabs"><button id="oldTab" class="selected">Old Testament</button><button id="newTab">New Testament</button></div>
+      <div class="picker-body">
+        <div id="bookList" class="book-list"></div>
+        <div id="chapterList" class="chapter-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="appearance" class="modal hidden" role="dialog" aria-modal="true" aria-label="Reading appearance">
+    <div class="scrim" data-close="appearance"></div>
+    <div class="sheet appearance-sheet">
+      <div class="sheet-handle"></div>
+      <div class="sheet-title-row"><h2>Reading Appearance</h2><button data-close="appearance">Done</button></div>
+      <div class="appearance-font"><button id="sheetFontMinus">A</button><div>Text size <span id="sheetFontLabel">18</span></div><button id="sheetFontPlus">A</button></div>
+      <div class="appearance-themes">
+        <button data-theme="light" class="appearance-theme light selected">Light</button>
+        <button data-theme="sepia" class="appearance-theme sepia">Sepia</button>
+        <button data-theme="dark" class="appearance-theme dark">Dark</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="verseSheet" class="modal hidden" role="dialog" aria-modal="true" aria-label="Verse actions">
+    <div class="scrim" data-close="verseSheet"></div>
+    <div class="sheet verse-sheet">
+      <div class="sheet-handle"></div>
+      <div class="verse-sheet-head"><strong id="selectedRef"></strong><button data-close="verseSheet">Done</button></div>
+      <p id="selectedText" class="selected-text"></p>
+      <div class="action-grid">
+        <button id="bookmarkAction"><span>♡</span>Bookmark</button>
+        <button id="copyAction"><span>⧉</span>Copy</button>
+        <button id="shareAction"><span>↗</span>Share</button>
+      </div>
+      <div class="highlight-row"><span>Highlight</span><button data-highlight="none" class="clear-highlight">×</button><button data-highlight="gold" class="dot gold"></button><button data-highlight="blue" class="dot blue"></button><button data-highlight="rose" class="dot rose"></button></div>
+      <textarea id="noteInput" rows="3" placeholder="Add a private note…"></textarea>
+      <button id="saveNote" class="primary-wide">Save note</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
