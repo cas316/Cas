@@ -1,4 +1,4 @@
-# Holy Bible — KJV (Offline PWA)
+# Holy Bible — KJV (Offline PWA) — v1.1
 
 A complete, framework-free King James Version Bible reader built for older iPhones, including the iPhone 5S.
 
@@ -40,3 +40,16 @@ For offline installation on iPhone, host this folder on an HTTPS static host suc
 ## Data and privacy
 
 The King James Version text is public domain. All bookmarks, notes, highlights and reading position are stored only in the browser on the device. No account, analytics or external API is used.
+
+
+## v1.1 — iOS 12.5.x layout repair
+
+This build fixes the iPhone 5S standalone layout so that:
+
+- the header and bottom navigation remain fixed;
+- only the current page/chapter scrolls;
+- the passage picker and `Aa` panel receive taps reliably on iOS 12;
+- the bottom bar sits against the bottom edge;
+- the service worker replaces the older cached shell.
+
+When replacing v1.0 on GitHub Pages, upload the contents of this folder over the existing repository files. Then open the site in Safari and refresh once. If the Home Screen copy still shows v1.0, remove that icon and add the site to the Home Screen again.

@@ -11,7 +11,7 @@
   <title>Holy Bible — KJV</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=1.1.0">
 </head>
 <body>
   <div id="boot" class="boot" aria-live="polite">
@@ -22,12 +22,12 @@
 
   <div id="app" class="app hidden">
     <header id="topbar" class="topbar">
-      <button id="menuBtn" class="icon-btn" aria-label="Choose book and chapter">☰</button>
-      <button id="referenceBtn" class="reference-btn" aria-label="Choose book and chapter">
+      <button type="button" id="menuBtn" class="icon-btn" aria-label="Choose book and chapter">☰</button>
+      <button type="button" id="referenceBtn" class="reference-btn" aria-label="Choose book and chapter">
         <span id="referenceTitle">John 1</span>
         <small>KING JAMES VERSION</small>
       </button>
-      <button id="displayBtn" class="icon-btn type-btn" aria-label="Reading appearance">Aa</button>
+      <button type="button" id="displayBtn" class="icon-btn type-btn" aria-label="Reading appearance">Aa</button>
     </header>
 
     <main id="main" class="main">
@@ -104,10 +104,10 @@
     </main>
 
     <nav class="tabbar" aria-label="Primary navigation">
-      <button data-view="reader" class="tab active-tab"><span>▤</span><small>Read</small></button>
-      <button data-view="search" class="tab"><span>⌕</span><small>Search</small></button>
-      <button data-view="saved" class="tab"><span>♡</span><small>Saved</small></button>
-      <button data-view="settings" class="tab"><span>⚙</span><small>Settings</small></button>
+      <button type="button" data-view="reader" class="tab active-tab"><span>▤</span><small>Read</small></button>
+      <button type="button" data-view="search" class="tab"><span>⌕</span><small>Search</small></button>
+      <button type="button" data-view="saved" class="tab"><span>♡</span><small>Saved</small></button>
+      <button type="button" data-view="settings" class="tab"><span>⚙</span><small>Settings</small></button>
     </nav>
   </div>
 
@@ -156,6 +156,6 @@
   </div>
 
   <div id="toast" class="toast" role="status"></div>
-  <script src="app.js"></script>
+  <script src="app.js?v=1.1.0"></script>
 </body>
 </html>
