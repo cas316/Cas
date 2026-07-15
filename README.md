@@ -1,4 +1,4 @@
-# Holy Bible — KJV (Offline PWA) — v1.1
+# Holy Bible — KJV (Offline PWA) — v1.2
 
 A complete, framework-free King James Version Bible reader built for older iPhones, including the iPhone 5S.
 
@@ -53,3 +53,11 @@ This build fixes the iPhone 5S standalone layout so that:
 - the service worker replaces the older cached shell.
 
 When replacing v1.0 on GitHub Pages, upload the contents of this folder over the existing repository files. Then open the site in Safari and refresh once. If the Home Screen copy still shows v1.0, remove that icon and add the site to the Home Screen again.
+
+
+## v1.2 — bottom edge and SVG icon polish
+
+- Corrects the remaining iOS 12 Home Screen gap by using the largest available standalone viewport height and a theme-matched bottom underlay as a fallback.
+- Replaces the menu, bottom navigation, about, bookmark, copy and share glyphs with lightweight inline SVG artwork.
+- SVG icons inherit the selected light, sepia or dark theme color and do not depend on Apple emoji rendering.
+- Refreshes the offline cache from v1.1 to v1.2.

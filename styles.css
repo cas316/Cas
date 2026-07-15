@@ -108,3 +108,50 @@ body{touch-action:auto}
   .tabbar{height:calc(48px + var(--safe-bottom))}
   .main{bottom:calc(48px + var(--safe-bottom))}
 }
+
+
+/* v1.2 — standalone bottom-edge repair and monochrome SVG icon set */
+.ui-icon{
+  display:block;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  vector-effect:non-scaling-stroke;
+  pointer-events:none;
+}
+.top-icon{width:28px;height:28px;margin:auto}
+.tab-icon{width:25px;height:25px;margin:0 auto 2px}
+.action-icon{width:22px;height:22px;margin:0 auto 5px}
+.action-icon.is-filled{fill:currentColor}
+.mini-svg{width:25px;height:25px;margin:auto;stroke-width:1.7}
+.chapter-chevron{width:17px;height:17px;display:inline-block;vertical-align:-4px}
+.chapter-nav-btn{display:flex;align-items:center;justify-content:center}
+.chapter-nav-btn span{display:inline-block;margin:0 2px}
+.tab{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.tab small{line-height:1.1}
+.action-grid button{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.action-grid .action-label{display:block;font-size:11px;line-height:1.1;margin:0}
+
+/* In old iOS standalone mode, screen.height can be reported one status-bar
+   short. 100vh plus a matching underlay keeps the tab bar visually flush. */
+html.standalone-mode,
+html.standalone-mode body{
+  height:100vh!important;
+  min-height:100vh!important;
+}
+html.standalone-mode .app{
+  height:100vh!important;
+  min-height:100vh!important;
+}
+html.standalone-mode body:before{
+  content:"";
+  position:fixed;
+  left:0;right:0;bottom:0;
+  height:32px;
+  background:var(--tab,#fdfcf8);
+  z-index:0;
+  pointer-events:none;
+}
+html.standalone-mode .app{z-index:1}

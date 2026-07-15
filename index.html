@@ -11,7 +11,7 @@
   <title>Holy Bible — KJV</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css?v=1.1.0">
+  <link rel="stylesheet" href="styles.css?v=1.2.0">
 </head>
 <body>
   <div id="boot" class="boot" aria-live="polite">
@@ -22,7 +22,7 @@
 
   <div id="app" class="app hidden">
     <header id="topbar" class="topbar">
-      <button type="button" id="menuBtn" class="icon-btn" aria-label="Choose book and chapter">☰</button>
+      <button type="button" id="menuBtn" class="icon-btn" aria-label="Choose book and chapter"><svg class="ui-icon top-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
       <button type="button" id="referenceBtn" class="reference-btn" aria-label="Choose book and chapter">
         <span id="referenceTitle">John 1</span>
         <small>KING JAMES VERSION</small>
@@ -38,8 +38,8 @@
         </div>
         <article id="verses" class="verses" aria-live="polite"></article>
         <div class="chapter-nav">
-          <button id="prevChapter" class="chapter-nav-btn">‹ Previous</button>
-          <button id="nextChapter" class="chapter-nav-btn">Next ›</button>
+          <button id="prevChapter" class="chapter-nav-btn"><svg class="ui-icon chapter-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m14.5 6-6 6 6 6"></path></svg><span>Previous</span></button>
+          <button id="nextChapter" class="chapter-nav-btn"><span>Next</span><svg class="ui-icon chapter-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9.5 6 6 6-6 6"></path></svg></button>
         </div>
       </section>
 
@@ -94,7 +94,7 @@
           </div>
 
           <div class="settings-card about-card">
-            <div class="mini-icon">✝</div>
+            <div class="mini-icon"><svg class="ui-icon mini-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v18M6.5 8.5h11"></path></svg></div>
             <strong>Holy Bible — KJV</strong>
             <p>Complete 66-book King James Version. Bookmarks, notes, highlights and reading position remain only on this device.</p>
             <small>KJV text: public domain.</small>
@@ -104,10 +104,10 @@
     </main>
 
     <nav class="tabbar" aria-label="Primary navigation">
-      <button type="button" data-view="reader" class="tab active-tab"><span>▤</span><small>Read</small></button>
-      <button type="button" data-view="search" class="tab"><span>⌕</span><small>Search</small></button>
-      <button type="button" data-view="saved" class="tab"><span>♡</span><small>Saved</small></button>
-      <button type="button" data-view="settings" class="tab"><span>⚙</span><small>Settings</small></button>
+      <button type="button" data-view="reader" class="tab active-tab"><svg class="ui-icon tab-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 5.5c3.2-.8 5.8-.4 8.5 1.2v12c-2.7-1.6-5.3-2-8.5-1.2z"></path><path d="M20.5 5.5c-3.2-.8-5.8-.4-8.5 1.2v12c2.7-1.6 5.3-2 8.5-1.2z"></path></svg><small>Read</small></button>
+      <button type="button" data-view="search" class="tab"><svg class="ui-icon tab-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.25"></circle><path d="m15.2 15.2 4.3 4.3"></path></svg><small>Search</small></button>
+      <button type="button" data-view="saved" class="tab"><svg class="ui-icon tab-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 5.8c-2.2-2.2-5.8-1.8-7.7.7L12 8l-1.1-1.5c-1.9-2.5-5.5-2.9-7.7-.7-2.5 2.5-2.1 6.5.4 8.8L12 22l8.4-7.4c2.5-2.3 2.9-6.3.4-8.8z"></path></svg><small>Saved</small></button>
+      <button type="button" data-view="settings" class="tab"><svg class="ui-icon tab-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h8M16 6h4M4 12h3M11 12h9M4 18h10M18 18h2"></path><circle cx="14" cy="6" r="2"></circle><circle cx="9" cy="12" r="2"></circle><circle cx="16" cy="18" r="2"></circle></svg><small>Settings</small></button>
     </nav>
   </div>
 
@@ -145,9 +145,9 @@
       <div class="verse-sheet-head"><strong id="selectedRef"></strong><button data-close="verseSheet">Done</button></div>
       <p id="selectedText" class="selected-text"></p>
       <div class="action-grid">
-        <button id="bookmarkAction"><span>♡</span>Bookmark</button>
-        <button id="copyAction"><span>⧉</span>Copy</button>
-        <button id="shareAction"><span>↗</span>Share</button>
+        <button id="bookmarkAction"><svg class="ui-icon action-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 3.5h11v17L12 17l-5.5 3.5z"></path></svg><span class="action-label">Bookmark</span></button>
+        <button id="copyAction"><svg class="ui-icon action-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="11" height="12" rx="1.5"></rect><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v11A1.5 1.5 0 0 0 5.5 18H8"></path></svg><span class="action-label">Copy</span></button>
+        <button id="shareAction"><svg class="ui-icon action-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15V3M8 7l4-4 4 4"></path><path d="M6 11H4.5A1.5 1.5 0 0 0 3 12.5v7A1.5 1.5 0 0 0 4.5 21h15a1.5 1.5 0 0 0 1.5-1.5v-7a1.5 1.5 0 0 0-1.5-1.5H18"></path></svg><span class="action-label">Share</span></button>
       </div>
       <div class="highlight-row"><span>Highlight</span><button data-highlight="none" class="clear-highlight">×</button><button data-highlight="gold" class="dot gold"></button><button data-highlight="blue" class="dot blue"></button><button data-highlight="rose" class="dot rose"></button></div>
       <textarea id="noteInput" rows="3" placeholder="Add a private note…"></textarea>
@@ -156,6 +156,6 @@
   </div>
 
   <div id="toast" class="toast" role="status"></div>
-  <script src="app.js?v=1.1.0"></script>
+  <script src="app.js?v=1.2.0"></script>
 </body>
 </html>
